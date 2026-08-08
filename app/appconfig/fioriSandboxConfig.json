@@ -1,0 +1,56 @@
+{
+  "services": {
+    "LaunchPage": {
+      "adapter": {
+        "config": {
+          "groups": [
+            {
+              "id": "LeaveManagement",
+              "title": "Leave Management",
+              "isPreset": true,
+              "isVisible": true,
+              "isGroupLocked": false,
+              "tiles": [
+                {
+                  "id": "ManageLeaveRequests",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "title": "Manage Leave Requests",
+                    "targetURL": "#LeaveRequests-manage"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "NavTargetResolution": {
+      "config": {
+        "enableClientSideTargetResolution": true
+      }
+    },
+    "ClientSideTargetResolution": {
+      "adapter": {
+        "config": {
+          "inbounds": {
+            "ManageLeaveRequests": {
+              "semanticObject": "LeaveRequests",
+              "action": "manage",
+              "title": "Manage Leave Requests",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              },
+              "resolutionResult": {
+                "applicationType": "SAPUI5",
+                "additionalInformation": "SAPUI5.Component=leave-management.leave-request-manage",
+                "url": "/leave-request-manage/webapp"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

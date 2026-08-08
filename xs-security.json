@@ -1,0 +1,64 @@
+{
+  "description": "Authorization scopes and role collections for the NovaTech Leave Management application",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Employee",
+      "description": "Employee: submit, view and cancel own leave requests"
+    },
+    {
+      "name": "$XSAPPNAME.Manager",
+      "description": "Manager: view and approve/reject direct reports' leave requests"
+    },
+    {
+      "name": "$XSAPPNAME.HRAdmin",
+      "description": "HR Admin: full read/write across all leave data, manage master data"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "Employee",
+      "description": "Employee role template",
+      "scope-references": [
+        "$XSAPPNAME.Employee"
+      ]
+    },
+    {
+      "name": "Manager",
+      "description": "Manager role template",
+      "scope-references": [
+        "$XSAPPNAME.Manager"
+      ]
+    },
+    {
+      "name": "HRAdmin",
+      "description": "HR Admin role template",
+      "scope-references": [
+        "$XSAPPNAME.HRAdmin"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "LeaveEmployee",
+      "description": "CRUD on own leave requests only",
+      "role-template-references": [
+        "$XSAPPNAME.Employee"
+      ]
+    },
+    {
+      "name": "LeaveManager",
+      "description": "Read/approve direct reports' requests",
+      "role-template-references": [
+        "$XSAPPNAME.Manager"
+      ]
+    },
+    {
+      "name": "LeaveHRAdmin",
+      "description": "Full read/write across all data, manage master data",
+      "role-template-references": [
+        "$XSAPPNAME.HRAdmin"
+      ]
+    }
+  ]
+}

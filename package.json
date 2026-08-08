@@ -3,13 +3,63 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "@sap/cds": "^10"
+    "@cap-js/hana": "^3",
+    "@sap/cds": "^10",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^3"
+    "@cap-js/cds-test": "^1.0.2",
+    "@cap-js/sqlite": "^3",
+    "@sap/cds-dk": "^10"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "test": "node --test test/*.test.js"
   },
-  "private": true
+  "private": true,
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "anna.schmidt@novatech.com": {
+              "roles": [
+                "Employee"
+              ]
+            },
+            "peter.wagner@novatech.com": {
+              "roles": [
+                "Employee"
+              ]
+            },
+            "laura.fischer@novatech.com": {
+              "roles": [
+                "Employee"
+              ]
+            },
+            "john.miller@novatech.com": {
+              "roles": [
+                "Employee",
+                "Manager"
+              ]
+            },
+            "hr.admin@novatech.com": {
+              "roles": [
+                "HRAdmin"
+              ]
+            },
+            "carol@novatech.com": {
+              "roles": [
+                "HRAdmin"
+              ]
+            }
+          }
+        }
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      }
+    }
+  }
 }

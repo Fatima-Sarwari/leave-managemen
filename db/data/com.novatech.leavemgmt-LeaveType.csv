@@ -1,0 +1,4 @@
+ID,name,requiresApproval
+aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,Annual,true
+bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb,Sick,true
+cccccccc-cccc-cccc-cccc-cccccccccccc,Unpaid,false
